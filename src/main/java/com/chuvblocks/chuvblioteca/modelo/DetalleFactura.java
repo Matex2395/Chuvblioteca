@@ -8,11 +8,18 @@ import org.openxava.annotations.*;
 
 import lombok.*;
 
-@Embeddable @Getter @Setter
+@Entity @Getter @Setter
 public class DetalleFactura {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Libro libro;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Factura factura;
 
     @Required
     private int cantidad;

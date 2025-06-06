@@ -23,12 +23,12 @@ public class Factura {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Cliente cliente;
 
-    @ElementCollection
-    @ListProperties("libro.titulo, libro.autor.nombre, libro.categoria.nombre, cantidad, precioUnitario, subtotal")
-    private Collection<DetalleFactura> detalles;
+    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
+    @ListProperties("libro.titulo, cantidad, precioUnitario, subtotal")
+    private Collection<DetalleFactura> detallefactura;
 
     @Stereotype("DINERO")
     @ReadOnly
-    @Calculation("sum(detalles.subtotal)")
+    @Calculation("sum(detallefactura.subtotal)")
     private BigDecimal total;
 }
