@@ -29,6 +29,12 @@ public class Factura {
 
     @Stereotype("DINERO")
     @ReadOnly
-    @Calculation("sum(detallefactura.subtotal)")
-    private BigDecimal total;
+    @Depends("detallefactura")
+    public BigDecimal getTotal() {
+        if (detallefactura == null) return BigDecimal.ZERO;
+        return detallefactura.stream()
+            .map(DetalleFactura::getSubtotal)
+            .filter(Objects::nonNull)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
 }
