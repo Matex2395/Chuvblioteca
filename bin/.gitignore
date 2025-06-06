@@ -1,0 +1,39 @@
+# === Directorios generados ===
+/target/
+/temp/
+
+# === Archivos de logs ===
+*.log
+
+# === IDEs ===
+# Eclipse
+.classpath
+.project
+.settings/
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# === Sistema operativo ===
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+desktop.ini
+
+# === Maven ===
+.mvn/
+!**/src/main/**/.gitkeep
+
+# === Archivos temporales ===
+*.swp
+*.bak
+*.tmp
+
+# === Java ===
+*.class
+
+# === Otros ===
+# Si, por ejemplo, se usa alguna base de datos embebida (como H2) y se generan archivos locales:
+*.mv.db
+*.h2.db
