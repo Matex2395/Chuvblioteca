@@ -34,6 +34,5 @@ desktop.ini
 *.class
 
 # === Otros ===
-# Si, por ejemplo, se usa alguna base de datos embebida (como H2) y se generan archivos locales:
 *.mv.db
 *.h2.db
