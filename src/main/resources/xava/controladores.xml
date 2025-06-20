@@ -32,4 +32,18 @@ https://github.com/openxava/openxava/blob/master/openxavatest/src/main/resources
     </controlador>
     -->
     
+    <!-- Declaración del servicio para inyección -->
+    <objeto nombre="libroService" clase="com.chuvblocks.chuvblioteca.services.LibroService" />
+
+    <controlador nombre="Libro">
+        <!-- Heredar las acciones estándar -->
+        <hereda-de controlador="Typical" />
+        
+        <!-- Agregar la acción personalizada -->
+        <accion nombre="autoresMasLibros"
+                icono="star"
+                clase="com.chuvblocks.chuvblioteca.services.AccionAutoresMasLibros"
+                etiqueta="Autores con más libros" />
+    </controlador>
+    
 </controladores>
