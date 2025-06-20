@@ -11,9 +11,14 @@ import org.openxava.annotations.*;
 import lombok.*;
 
 @Entity @Getter @Setter
+@View(name = "Simple", members =
+"fecha, cliente;" +
+"total")
+@Tab(properties = "fecha, cliente.nombre, total")
 public class Factura {
 
     @Id
+    @Hidden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -21,6 +26,7 @@ public class Factura {
     private LocalDate fecha;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ReferenceView("Simple")
     private Cliente cliente;
 
     @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
